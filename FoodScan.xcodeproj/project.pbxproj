@@ -6,6 +6,16 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6970B6682EBED9F40003DB83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6970B6642EBED9F40003DB83 /* Assets.xcassets */; };
+		6970B6692EBED9F40003DB83 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970B6652EBED9F40003DB83 /* ContentView.swift */; };
+		6970B66A2EBED9F40003DB83 /* FoodScanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970B6662EBED9F40003DB83 /* FoodScanApp.swift */; };
+		6970B66E2EBEDA300003DB83 /* SearchResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970B66D2EBEDA300003DB83 /* SearchResponseEntity.swift */; };
+		6970B6732EC07B4C0003DB83 /* OpenFoodFactsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970B6722EC07B4C0003DB83 /* OpenFoodFactsAPI.swift */; };
+		6970B6742EC07B4C0003DB83 /* OpenFoodFactsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970B6722EC07B4C0003DB83 /* OpenFoodFactsAPI.swift */; };
+		6970B6792EC0B1F10003DB83 /* OpenFoodFactsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970B6782EC0B1F10003DB83 /* OpenFoodFactsError.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		6970B6462EBC90590003DB83 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,14 +37,15 @@
 		6970B6382EBC90560003DB83 /* FoodScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6970B6452EBC90590003DB83 /* FoodScanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodScanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6970B64F2EBC90590003DB83 /* FoodScanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodScanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6970B6642EBED9F40003DB83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6970B6652EBED9F40003DB83 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6970B6662EBED9F40003DB83 /* FoodScanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodScanApp.swift; sourceTree = "<group>"; };
+		6970B66D2EBEDA300003DB83 /* SearchResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponseEntity.swift; sourceTree = "<group>"; };
+		6970B6722EC07B4C0003DB83 /* OpenFoodFactsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFoodFactsAPI.swift; sourceTree = "<group>"; };
+		6970B6782EC0B1F10003DB83 /* OpenFoodFactsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFoodFactsError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		6970B63A2EBC90560003DB83 /* FoodScan */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = FoodScan;
-			sourceTree = "<group>";
-		};
 		6970B6482EBC90590003DB83 /* FoodScanTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = FoodScanTests;
@@ -75,7 +86,7 @@
 		6970B62F2EBC90560003DB83 = {
 			isa = PBXGroup;
 			children = (
-				6970B63A2EBC90560003DB83 /* FoodScan */,
+				6970B6672EBED9F40003DB83 /* FoodScan */,
 				6970B6482EBC90590003DB83 /* FoodScanTests */,
 				6970B6522EBC90590003DB83 /* FoodScanUITests */,
 				6970B6392EBC90560003DB83 /* Products */,
@@ -92,6 +103,59 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		6970B6632EBED9F40003DB83 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6970B66D2EBEDA300003DB83 /* SearchResponseEntity.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6970B6672EBED9F40003DB83 /* FoodScan */ = {
+			isa = PBXGroup;
+			children = (
+				6970B6642EBED9F40003DB83 /* Assets.xcassets */,
+				6970B6662EBED9F40003DB83 /* FoodScanApp.swift */,
+				6970B6772EC0B1D30003DB83 /* Error */,
+				6970B66B2EBED9FC0003DB83 /* View */,
+				6970B66C2EBEDA040003DB83 /* ViewModel */,
+				6970B6632EBED9F40003DB83 /* Model */,
+				6970B6762EC0B18C0003DB83 /* Service */,
+			);
+			path = FoodScan;
+			sourceTree = "<group>";
+		};
+		6970B66B2EBED9FC0003DB83 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6970B6652EBED9F40003DB83 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6970B66C2EBEDA040003DB83 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6970B6762EC0B18C0003DB83 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				6970B6722EC07B4C0003DB83 /* OpenFoodFactsAPI.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		6970B6772EC0B1D30003DB83 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				6970B6782EC0B1F10003DB83 /* OpenFoodFactsError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +170,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				6970B63A2EBC90560003DB83 /* FoodScan */,
 			);
 			name = FoodScan;
 			packageProductDependencies = (
@@ -212,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6970B6682EBED9F40003DB83 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +298,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6970B6792EC0B1F10003DB83 /* OpenFoodFactsError.swift in Sources */,
+				6970B6692EBED9F40003DB83 /* ContentView.swift in Sources */,
+				6970B66A2EBED9F40003DB83 /* FoodScanApp.swift in Sources */,
+				6970B6742EC07B4C0003DB83 /* OpenFoodFactsAPI.swift in Sources */,
+				6970B66E2EBEDA300003DB83 /* SearchResponseEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6970B6732EC07B4C0003DB83 /* OpenFoodFactsAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

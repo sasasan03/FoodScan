@@ -11,7 +11,7 @@ struct OpenFoodFactsApiClient {
     // TODO: エラー処理を追加
     func searchFood(itemName: String) async throws -> [OpenFoodFactsProduct] {
         //TODO: ステージング環境(net)で行っているため本番環境(org)に切り替える必要あり
-        guard var components = URLComponents(string: "https://world.openfoodfacts.org/api/v2/search") else { return [] }
+        guard var components = URLComponents(string: "https://world.openfoodfacts.org/api/v2/search") else { throw OpenFoodFactsAPIError.invalidURL }
         components.queryItems = [
             URLQueryItem(name: "categories_tags_ja", value: itemName),
             URLQueryItem(
@@ -29,16 +29,22 @@ struct OpenFoodFactsApiClient {
             URLQueryItem(name: "page_size", value: "10")
         ]
         
-        guard let componentsURL = components.url else { return  [] }
+        guard let componentsURL = components.url else { throw OpenFoodFactsAPIError.invalidURL }
+        
         var request = URLRequest(url: componentsURL)
         request.httpMethod = "GET"
         request.setValue("FoodScan - iOS - 1.0", forHTTPHeaderField: "User-Agent")
         
-        
         let (data,response) = try await URLSession.shared.data(for: request)
-        print(String(data: data, encoding: .utf8) ?? "no body")
-        guard let httpResponse = response as? HTTPURLResponse,
-              (200..<300).contains(httpResponse.statusCode) else { return [] }
+        
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw OpenFoodFactsAPIError.networkError
+        }
+        
+        guard (200..<300).contains(httpResponse.statusCode) else {
+            throw OpenFoodFactsAPIError.invalidResponse(statusCode: httpResponse.statusCode)
+        }
+        
         let decoder = JSONDecoder()
         let result = try decoder.decode(SearchResponse.self, from: data)
         return result.products

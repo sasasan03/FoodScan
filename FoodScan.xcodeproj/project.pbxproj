@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6970B6682EBED9F40003DB83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6970B6642EBED9F40003DB83 /* Assets.xcassets */; };
-		6970B6692EBED9F40003DB83 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970B6652EBED9F40003DB83 /* ContentView.swift */; };
 		6970B66A2EBED9F40003DB83 /* FoodScanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970B6662EBED9F40003DB83 /* FoodScanApp.swift */; };
 		6970B66E2EBEDA300003DB83 /* SearchResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970B66D2EBEDA300003DB83 /* SearchResponseEntity.swift */; };
 		6970B6732EC07B4C0003DB83 /* OpenFoodFactsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970B6722EC07B4C0003DB83 /* OpenFoodFactsAPI.swift */; };
@@ -16,6 +15,12 @@
 		6970B6792EC0B1F10003DB83 /* OpenFoodFactsAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970B6782EC0B1F10003DB83 /* OpenFoodFactsAPIError.swift */; };
 		6970B6A22EC0E98B0003DB83 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970B6A12EC0E98B0003DB83 /* SplashScreenView.swift */; };
 		6970B6A42EC0E9C20003DB83 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970B6A32EC0E9C20003DB83 /* RootView.swift */; };
+		6970B6A62EC0EC980003DB83 /* SelectSearchTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970B6A52EC0EC980003DB83 /* SelectSearchTypeView.swift */; };
+		6970B6A92EC0F0700003DB83 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970B6A82EC0F0700003DB83 /* Router.swift */; };
+		6970B6AB2EC195E60003DB83 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970B6AA2EC195E60003DB83 /* SearchResultView.swift */; };
+		6970B6AD2EC195F30003DB83 /* BarcodeSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970B6AC2EC195F30003DB83 /* BarcodeSearchView.swift */; };
+		6970B6AF2EC1961C0003DB83 /* TextSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970B6AE2EC1961C0003DB83 /* TextSearchView.swift */; };
+		6970B6B12EC196600003DB83 /* SearchResultDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970B6B02EC196600003DB83 /* SearchResultDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,13 +45,18 @@
 		6970B6452EBC90590003DB83 /* FoodScanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodScanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6970B64F2EBC90590003DB83 /* FoodScanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodScanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6970B6642EBED9F40003DB83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6970B6652EBED9F40003DB83 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6970B6662EBED9F40003DB83 /* FoodScanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodScanApp.swift; sourceTree = "<group>"; };
 		6970B66D2EBEDA300003DB83 /* SearchResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponseEntity.swift; sourceTree = "<group>"; };
 		6970B6722EC07B4C0003DB83 /* OpenFoodFactsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFoodFactsAPI.swift; sourceTree = "<group>"; };
 		6970B6782EC0B1F10003DB83 /* OpenFoodFactsAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFoodFactsAPIError.swift; sourceTree = "<group>"; };
 		6970B6A12EC0E98B0003DB83 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		6970B6A32EC0E9C20003DB83 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		6970B6A52EC0EC980003DB83 /* SelectSearchTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSearchTypeView.swift; sourceTree = "<group>"; };
+		6970B6A82EC0F0700003DB83 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		6970B6AA2EC195E60003DB83 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
+		6970B6AC2EC195F30003DB83 /* BarcodeSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeSearchView.swift; sourceTree = "<group>"; };
+		6970B6AE2EC1961C0003DB83 /* TextSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSearchView.swift; sourceTree = "<group>"; };
+		6970B6B02EC196600003DB83 /* SearchResultDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -119,7 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				6970B6642EBED9F40003DB83 /* Assets.xcassets */,
-				6970B6662EBED9F40003DB83 /* FoodScanApp.swift */,
+				6970B6A72EC0F0410003DB83 /* Manager */,
 				6970B66B2EBED9FC0003DB83 /* View */,
 				6970B66C2EBEDA040003DB83 /* ViewModel */,
 				6970B6632EBED9F40003DB83 /* Model */,
@@ -132,9 +142,14 @@
 		6970B66B2EBED9FC0003DB83 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6970B6662EBED9F40003DB83 /* FoodScanApp.swift */,
 				6970B6A32EC0E9C20003DB83 /* RootView.swift */,
-				6970B6652EBED9F40003DB83 /* ContentView.swift */,
 				6970B6A12EC0E98B0003DB83 /* SplashScreenView.swift */,
+				6970B6A52EC0EC980003DB83 /* SelectSearchTypeView.swift */,
+				6970B6AE2EC1961C0003DB83 /* TextSearchView.swift */,
+				6970B6AC2EC195F30003DB83 /* BarcodeSearchView.swift */,
+				6970B6AA2EC195E60003DB83 /* SearchResultView.swift */,
+				6970B6B02EC196600003DB83 /* SearchResultDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -160,6 +175,14 @@
 				6970B6782EC0B1F10003DB83 /* OpenFoodFactsAPIError.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		6970B6A72EC0F0410003DB83 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				6970B6A82EC0F0700003DB83 /* Router.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,12 +328,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				6970B6792EC0B1F10003DB83 /* OpenFoodFactsAPIError.swift in Sources */,
-				6970B6692EBED9F40003DB83 /* ContentView.swift in Sources */,
+				6970B6A62EC0EC980003DB83 /* SelectSearchTypeView.swift in Sources */,
 				6970B66A2EBED9F40003DB83 /* FoodScanApp.swift in Sources */,
+				6970B6A92EC0F0700003DB83 /* Router.swift in Sources */,
+				6970B6B12EC196600003DB83 /* SearchResultDetailView.swift in Sources */,
 				6970B6742EC07B4C0003DB83 /* OpenFoodFactsAPI.swift in Sources */,
 				6970B6A42EC0E9C20003DB83 /* RootView.swift in Sources */,
+				6970B6AD2EC195F30003DB83 /* BarcodeSearchView.swift in Sources */,
 				6970B66E2EBEDA300003DB83 /* SearchResponseEntity.swift in Sources */,
+				6970B6AF2EC1961C0003DB83 /* TextSearchView.swift in Sources */,
 				6970B6A22EC0E98B0003DB83 /* SplashScreenView.swift in Sources */,
+				6970B6AB2EC195E60003DB83 /* SearchResultView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +509,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -509,6 +538,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

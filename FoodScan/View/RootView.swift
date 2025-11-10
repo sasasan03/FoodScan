@@ -13,7 +13,7 @@ struct RootView: View {
     
     var body: some View {
         ZStack {
-            ContentView()
+            SelectSearchTypeView()
                 .opacity(showSplash ? 0 : 1)
             if showSplash {
                 SplashScreenView()
@@ -27,7 +27,6 @@ struct RootView: View {
                 withAnimation(.easeInOut) {
                     showSplash = false
                 }
-
             }
         }
     }

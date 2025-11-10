@@ -53,20 +53,20 @@ struct Nutriments: Decodable {
         case salt100g = "salt_100g"
     }
     
-        init(from decoder: Decoder) throws {
-            let c = try decoder.container(keyedBy: CodingKeys.self)
-            func flex(_ k: CodingKeys) -> Double? {
-                (try? c.decode(FlexibleDouble.self, forKey: k))?.value
-            }
-            energyKcal100g = flex(.energyKcal100g)
-            proteins100g = flex(.proteins100g)
-            fat100g = flex(.fat100g)
-            saturatedFat100g = flex(.saturatedFat100g)
-            carbohydrates100g = flex(.carbohydrates100g)
-            sugars100g = flex(.sugars100g)
-            fiber100g = flex(.fiber100g)
-            salt100g = flex(.salt100g)
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        func flex(_ k: CodingKeys) -> Double? {
+            (try? c.decode(FlexibleDouble.self, forKey: k))?.value
         }
+        energyKcal100g = flex(.energyKcal100g)
+        proteins100g = flex(.proteins100g)
+        fat100g = flex(.fat100g)
+        saturatedFat100g = flex(.saturatedFat100g)
+        carbohydrates100g = flex(.carbohydrates100g)
+        sugars100g = flex(.sugars100g)
+        fiber100g = flex(.fiber100g)
+        salt100g = flex(.salt100g)
+    }
 }
 
 /// キーに対して返ってくる値の型が違っているため、対応が必要

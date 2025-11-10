@@ -8,11 +8,43 @@
 import SwiftUI
 
 struct SelectSearchTypeView: View {
+    
+    @Environment(Router.self) var router
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        @Bindable var router = router
+        NavigationStack(path: $router.path) {
+            VStack(spacing: 40) {
+                Button {
+                    router.push(.textSearch)
+                } label: {
+                    Text("文字で検索")
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundColor(.white)
+                        .frame(width: 200, height: 44)
+                        .background(Color.blue)
+                        .cornerRadius(6)
+                }
+                Button {
+                    router.push(.barcodeSearch)
+                } label: {
+                    Text("バーコードで検索")
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundColor(.white)
+                        .frame(width: 200, height: 44)
+                        .background(Color.blue)
+                        .cornerRadius(6)
+                }
+            }
+            .navigationDestination(for: Destination.self) { destination in
+                destination.makeView()
+            }
+        }
     }
 }
 
 #Preview {
-    SelectSearchTypeView_()
+    let router = Router()
+    SelectSearchTypeView()
+        .environment(router)
 }

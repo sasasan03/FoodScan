@@ -22,6 +22,8 @@ enum Destination: Hashable {
             SelectSearchTypeView()
         case .textSearch:
             TextSearchView()
+                .navigationTitle("open Food facts")
+                .toolbarTitleDisplayMode(.large)
         case .barcodeSearch:
             BarcodeSearchView()
         case .searchResult:
@@ -30,7 +32,6 @@ enum Destination: Hashable {
             SearchResultDetailView()
         }
     }
-    
 }
 
 @MainActor

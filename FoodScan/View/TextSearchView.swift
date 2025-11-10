@@ -8,8 +8,33 @@
 import SwiftUI
 
 struct TextSearchView: View {
+    
+    @State private var searchText = ""
+    @FocusState private var isSearchFocused: Bool
+    let isSearchResult = true
+    let foods: [String] = ["コーラ","ゼロコーラ","オリジナルコーラ"]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Group {
+            if isSearchResult {
+                List {
+                    ForEach (foods, id: \.self) { food in
+                        NavigationLink(food) {
+                            SearchResultView()
+                                .navigationTitle(food)
+                        }
+                    }
+                }
+            } else {
+                Text("食品を検索してください")
+            }
+        }
+        .searchable(
+            text: $searchText,
+            placement: .navigationBarDrawer(displayMode: .always),
+            prompt: "食品名を入力"
+        )
+        .searchFocused($isSearchFocused)
     }
 }
 

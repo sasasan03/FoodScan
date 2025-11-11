@@ -8,10 +8,9 @@
 import Foundation
 
 struct OpenFoodFactsApiClient {
-    // TODO: エラー処理を追加
     func searchFood(itemName: String) async throws -> [OpenFoodFactsProduct] {
         //TODO: ステージング環境(net)で行っているため本番環境(org)に切り替える必要あり
-        guard var components = URLComponents(string: "https://world.openfoodfacts.org/api/v2/search") else { throw OpenFoodFactsAPIError.invalidURL }
+        guard var components = URLComponents(string: "https://world.openfoodfacts.net/api/v2/search") else { throw OpenFoodFactsAPIError.invalidURL }
         components.queryItems = [
             URLQueryItem(name: "categories_tags_ja", value: itemName),
             URLQueryItem(

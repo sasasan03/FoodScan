@@ -9,7 +9,9 @@ import SwiftUI
 
 struct BarcodeSearchView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationLink("カメラでの検索結果を表示") {
+            SearchResultView()
+        }
     }
 }
 

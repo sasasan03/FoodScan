@@ -21,6 +21,8 @@ struct OpenFoodFactsProduct: Decodable {
     let imageUrl: String?
     let additivesTags: [String]? //⚪️含まれる添加物を全て取得
     let nutriments: Nutriments?
+    let ingredientsText: String? //⚪️原材料名
+    let ingredientsAnalysisTags: [String]? //⚪️成分分析
     
     enum CodingKeys: String, CodingKey {
         case productName = "product_name"
@@ -29,6 +31,8 @@ struct OpenFoodFactsProduct: Decodable {
         case imageUrl = "image_front_url"
         case additivesTags = "additives_tags"
         case nutriments
+        case ingredientsText = "ingredients_text"
+        case ingredientsAnalysisTags = "ingredients_analysis_tags"
     }
 }
 
@@ -125,7 +129,8 @@ struct DummyData {
                 sugars100g: 35.0,
                 fiber100g: 2.1,
                 salt100g: 0.3
-            )
+            ),
+            ingredientsText: "水", ingredientsAnalysisTags: ["サンプル"]
         ),
         OpenFoodFactsProduct(
             productName: "バニラアイスクリーム",
@@ -142,7 +147,8 @@ struct DummyData {
                 sugars100g: 22.5,
                 fiber100g: 0.0,
                 salt100g: 0.12
-            )
+            ),
+            ingredientsText: "水", ingredientsAnalysisTags: ["サンプル"]
         ),
         OpenFoodFactsProduct(
             productName: "ポテトチップス",
@@ -159,7 +165,8 @@ struct DummyData {
                 sugars100g: 2.1,
                 fiber100g: 3.0,
                 salt100g: 1.2
-            )
+            ),
+            ingredientsText: "水", ingredientsAnalysisTags: ["サンプル"]
         ),
         OpenFoodFactsProduct(
             productName: "ミネラルウォーター",
@@ -176,7 +183,8 @@ struct DummyData {
                 sugars100g: 0,
                 fiber100g: 0,
                 salt100g: 0.01
-            )
+            ),
+            ingredientsText: "水", ingredientsAnalysisTags: ["サンプル"]
         ),
         OpenFoodFactsProduct(
             productName: "クロワッサン",
@@ -193,7 +201,8 @@ struct DummyData {
                 sugars100g: 9.0,
                 fiber100g: 2.5,
                 salt100g: 0.8
-            )
+            ),
+            ingredientsText: "水", ingredientsAnalysisTags: ["サンプル"]
         )
     ]
 }

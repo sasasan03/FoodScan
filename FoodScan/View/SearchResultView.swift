@@ -32,7 +32,10 @@ struct SearchResultView: View {
             NutrientChart()
             ForEach(details, id: \.self) { detail in
                 NavigationLink {
-                    SearchResultDetailView()
+                    SearchResultDetailView(
+                        items: nil,
+                        title: "添加物か材料"
+                    )
                         .navigationTitle(detail)
                 } label: {
                     VStack {

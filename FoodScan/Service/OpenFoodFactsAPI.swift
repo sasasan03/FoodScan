@@ -20,9 +20,11 @@ struct OpenFoodFactsApiClient {
                     "brands",
                     "countries",
                     "image_front_url",
+                    "ingredients_text",
                     "additives_n",
                     "additives_tags",
-                    "nutriments"
+                    "nutriments",
+                    "ingredients_analysis_tags"
                 ].joined(separator: ",")
             ),
             URLQueryItem(name: "page_size", value: "10")
@@ -30,12 +32,16 @@ struct OpenFoodFactsApiClient {
         
         guard let componentsURL = components.url else { throw OpenFoodFactsAPIError.invalidURL }
         
+//        print("---------------------")
+        print("url：\(componentsURL)")
         var request = URLRequest(url: componentsURL)
         request.httpMethod = "GET"
         request.setValue("FoodScan - iOS - 1.0", forHTTPHeaderField: "User-Agent")
         
         let (data,response) = try await URLSession.shared.data(for: request)
         
+//        print("---------------------")
+//        print("data：\(String(data: data, encoding: .utf8))")
         guard let httpResponse = response as? HTTPURLResponse else {
             throw OpenFoodFactsAPIError.networkError
         }

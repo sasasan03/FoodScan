@@ -29,7 +29,7 @@ enum Destination: Hashable {
         case .searchResult:
             SearchResultView()
         case .searchResultDetail:
-            SearchResultDetailView()
+            SearchResultDetailView(items: nil, title: "添加物")
         }
     }
 }

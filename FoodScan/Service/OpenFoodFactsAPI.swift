@@ -21,7 +21,6 @@ struct OpenFoodFactsApiClient {
                     "countries",
                     "image_front_url",
                     "ingredients_text",
-                    "additives_n",
                     "additives_tags",
                     "nutriments",
                     "ingredients_analysis_tags"

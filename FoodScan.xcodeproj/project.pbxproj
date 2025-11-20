@@ -20,7 +20,9 @@
 		6970B6AB2EC195E60003DB83 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970B6AA2EC195E60003DB83 /* SearchResultView.swift */; };
 		6970B6AD2EC195F30003DB83 /* BarcodeSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970B6AC2EC195F30003DB83 /* BarcodeSearchView.swift */; };
 		6970B6AF2EC1961C0003DB83 /* TextSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970B6AE2EC1961C0003DB83 /* TextSearchView.swift */; };
-		6970B6B12EC196600003DB83 /* SearchResultDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970B6B02EC196600003DB83 /* SearchResultDetailView.swift */; };
+		6970B6C52ECF29E30003DB83 /* ComponentAnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970B6C42ECF29E30003DB83 /* ComponentAnalysisView.swift */; };
+		6970B6C72ECF2A3C0003DB83 /* AdditivesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970B6C62ECF2A3C0003DB83 /* AdditivesView.swift */; };
+		6970B6C92ECF2A630003DB83 /* IngredientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970B6C82ECF2A630003DB83 /* IngredientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +58,9 @@
 		6970B6AA2EC195E60003DB83 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		6970B6AC2EC195F30003DB83 /* BarcodeSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeSearchView.swift; sourceTree = "<group>"; };
 		6970B6AE2EC1961C0003DB83 /* TextSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSearchView.swift; sourceTree = "<group>"; };
-		6970B6B02EC196600003DB83 /* SearchResultDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultDetailView.swift; sourceTree = "<group>"; };
+		6970B6C42ECF29E30003DB83 /* ComponentAnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentAnalysisView.swift; sourceTree = "<group>"; };
+		6970B6C62ECF2A3C0003DB83 /* AdditivesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditivesView.swift; sourceTree = "<group>"; };
+		6970B6C82ECF2A630003DB83 /* IngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -149,7 +153,9 @@
 				6970B6AE2EC1961C0003DB83 /* TextSearchView.swift */,
 				6970B6AC2EC195F30003DB83 /* BarcodeSearchView.swift */,
 				6970B6AA2EC195E60003DB83 /* SearchResultView.swift */,
-				6970B6B02EC196600003DB83 /* SearchResultDetailView.swift */,
+				6970B6C42ECF29E30003DB83 /* ComponentAnalysisView.swift */,
+				6970B6C62ECF2A3C0003DB83 /* AdditivesView.swift */,
+				6970B6C82ECF2A630003DB83 /* IngredientView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -329,11 +335,13 @@
 			files = (
 				6970B6792EC0B1F10003DB83 /* OpenFoodFactsAPIError.swift in Sources */,
 				6970B6A62EC0EC980003DB83 /* SelectSearchTypeView.swift in Sources */,
+				6970B6C92ECF2A630003DB83 /* IngredientView.swift in Sources */,
+				6970B6C52ECF29E30003DB83 /* ComponentAnalysisView.swift in Sources */,
 				6970B66A2EBED9F40003DB83 /* FoodScanApp.swift in Sources */,
 				6970B6A92EC0F0700003DB83 /* Router.swift in Sources */,
-				6970B6B12EC196600003DB83 /* SearchResultDetailView.swift in Sources */,
 				6970B6742EC07B4C0003DB83 /* OpenFoodFactsAPI.swift in Sources */,
 				6970B6A42EC0E9C20003DB83 /* RootView.swift in Sources */,
+				6970B6C72ECF2A3C0003DB83 /* AdditivesView.swift in Sources */,
 				6970B6AD2EC195F30003DB83 /* BarcodeSearchView.swift in Sources */,
 				6970B66E2EBEDA300003DB83 /* SearchResponseEntity.swift in Sources */,
 				6970B6AF2EC1961C0003DB83 /* TextSearchView.swift in Sources */,

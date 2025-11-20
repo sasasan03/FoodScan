@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct IngredientView: View {
+    
+    let ingredients = ["水","砂糖","レモン果汁"]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ForEach(ingredients, id: \.self) { ingredient in
+            VStack(alignment: .leading) {
+                Text(ingredient)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            Divider()
+        }
+        .padding(.horizontal, 20)
+        .padding(.vertical, 3)
+        Spacer()
     }
 }
 

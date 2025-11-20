@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct AdditivesView: View {
+    
+    let additives = ["プレーンキャラメル","スクラロース","アセスルファムK"]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ForEach(additives, id: \.self) { additive in
+            VStack(alignment: .leading) {
+                Text(additive)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            Divider()
+        }
+        .padding(.horizontal, 20)
+        .padding(.vertical, 3)
+        Spacer()
     }
 }
 

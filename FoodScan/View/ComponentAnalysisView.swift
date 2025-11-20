@@ -7,9 +7,32 @@
 
 import SwiftUI
 
+struct ItemDetail: Identifiable {
+    let id  = UUID()
+    let itemName: String
+    let itemDetail: String
+}
+
 struct ComponentAnalysisView: View {
+    
+    let itemDetails: [ItemDetail] = [
+        ItemDetail(itemName: "パーム油不使用", itemDetail: "パーム油を含む成分は抽出されませんでした"),
+        ItemDetail(itemName: "ビーガン", itemDetail: "非ビーガン成分不使用"),
+        ItemDetail(itemName: "ベジタリアン", itemDetail: "ベジタリアン成分は抽出されませんでした")
+    ]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ForEach(itemDetails) { itemDetail in
+            VStack(alignment: .leading) {
+                Text(itemDetail.itemName)
+                Text(itemDetail.itemDetail)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            Divider()
+        }
+        .padding(.horizontal, 20)
+        .padding(.vertical, 3)
+        Spacer()
     }
 }
 

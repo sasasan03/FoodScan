@@ -43,6 +43,7 @@ struct SearchResultView: View {
                     .padding(.vertical, 12)
                     Divider()
                 }
+                .contentShape(Rectangle())
                 .onTapGesture {
                     if detail == "添加物" {
                         router.push(.additives)

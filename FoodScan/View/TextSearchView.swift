@@ -22,7 +22,7 @@ struct TextSearchView: View {
                     ForEach (foods, id: \.self) { food in
                         Text(food.productName ?? "-----")
                             .frame(maxWidth: .infinity,alignment: .leading)
-                            .background(Color.red)
+                            .contentShape(Rectangle())
                             .onTapGesture {
                                 router.push(.searchResult)
                             }

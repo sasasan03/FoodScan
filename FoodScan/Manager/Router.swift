@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 import SwiftUI
 
 enum Destination: Hashable {
@@ -13,7 +14,9 @@ enum Destination: Hashable {
     case textSearch
     case barcodeSearch
     case searchResult
-    case searchResultDetail
+    case componentAnalysis
+    case additives
+    case ingredient
     
     @ViewBuilder
     func makeView() -> some View {
@@ -28,16 +31,32 @@ enum Destination: Hashable {
             BarcodeSearchView()
         case .searchResult:
             SearchResultView()
-        case .searchResultDetail:
-            SearchResultDetailView(items: nil, title: "添加物")
+        case .componentAnalysis:
+            ComponentAnalysisView()
+                .navigationTitle("成分分析")
+        case .additives:
+            AdditivesView()
+                .navigationTitle("添加物")
+        case .ingredient:
+            IngredientView()
+                .navigationTitle("材料")
         }
     }
 }
 
 @MainActor
-@Observable
-final class Router {
-    var path: [Destination] = []
+final class Router: ObservableObject {
+    @Published var path: [Destination] = []
+    let route = PassthroughSubject<Destination,Never>()
+    
+    private var cancellables = Set<AnyCancellable>()
+    
+    init() {
+        route
+            .sink { screen in
+                self.path.append(screen)
+            }.store(in: &cancellables)
+    }
     
     func push(_ destination: Destination) {
         path.append(destination)

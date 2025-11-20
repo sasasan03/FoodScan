@@ -9,10 +9,9 @@ import SwiftUI
 
 struct SelectSearchTypeView: View {
     
-    @Environment(Router.self) var router
+    @EnvironmentObject var router: Router
     
     var body: some View {
-        @Bindable var router = router
         NavigationStack(path: $router.path) {
             VStack(spacing: 40) {
                 Button {
@@ -46,5 +45,5 @@ struct SelectSearchTypeView: View {
 #Preview {
     let router = Router()
     SelectSearchTypeView()
-        .environment(router)
+        .environmentObject(router)
 }

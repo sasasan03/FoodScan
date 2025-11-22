@@ -59,7 +59,7 @@ final class Router: ObservableObject {
     }
     
     func push(_ destination: Destination) {
-        path.append(destination)
+        route.send(destination)
     }
     
     func pop() {

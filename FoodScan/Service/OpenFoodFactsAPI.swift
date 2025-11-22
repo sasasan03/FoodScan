@@ -31,7 +31,6 @@ struct OpenFoodFactsApiClient {
         
         guard let componentsURL = components.url else { throw OpenFoodFactsAPIError.invalidURL }
         
-//        print("---------------------")
         print("url：\(componentsURL)")
         var request = URLRequest(url: componentsURL)
         request.httpMethod = "GET"
@@ -39,8 +38,6 @@ struct OpenFoodFactsApiClient {
         
         let (data,response) = try await URLSession.shared.data(for: request)
         
-//        print("---------------------")
-//        print("data：\(String(data: data, encoding: .utf8))")
         guard let httpResponse = response as? HTTPURLResponse else {
             throw OpenFoodFactsAPIError.networkError
         }

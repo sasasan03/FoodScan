@@ -10,25 +10,12 @@ import SwiftUI
 @main
 struct FoodScanApp: App {
     
-    @State private var router: Router = .init()
-    
-    let api = OpenFoodFactsApiClient()
+    @StateObject private var router: Router = .init()
     
     var body: some Scene {
         WindowGroup {
             RootView()
-                .environment(router)
-                .task {
-                    do {
-                        let aaa = try await api.searchFood(itemName: "コーラ")
-                        print("---------------------")
-                        print("フード：\(aaa)")
-                    } catch {
-                        print("---------------------")
-                        print("\(error.localizedDescription)")
-                        print("---------------------")
-                    }
-                }
+                .environmentObject(router)
         }
     }
 }

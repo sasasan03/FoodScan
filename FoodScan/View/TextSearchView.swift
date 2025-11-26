@@ -9,20 +9,23 @@ import SwiftUI
 
 struct TextSearchView: View {
     
+    @EnvironmentObject var router: Router
     @State private var searchText = ""
     @FocusState private var isSearchFocused: Bool
     let isSearchResult = true
-    let foods: [String] = ["コーラ","ゼロコーラ","オリジナルコーラ"]
+    let foods:[OpenFoodFactsProduct] = DummyData().sampleProducts
     
     var body: some View {
         Group {
             if isSearchResult {
                 List {
                     ForEach (foods, id: \.self) { food in
-                        NavigationLink(food) {
-                            SearchResultView()
-                                .navigationTitle(food)
-                        }
+                        Text(food.productName ?? "-----")
+                            .frame(maxWidth: .infinity,alignment: .leading)
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                router.push(.searchResult)
+                            }
                     }
                 }
             } else {
@@ -39,5 +42,7 @@ struct TextSearchView: View {
 }
 
 #Preview {
+    let router = Router()
     TextSearchView()
+        .environmentObject(router)
 }

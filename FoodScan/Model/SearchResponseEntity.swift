@@ -14,7 +14,7 @@ struct SearchResponse: Decodable {
 //🟡・・・食品カードで使用
 //🟣・・・棒グラフで使用
 //⚪️・・・リストで使用
-struct OpenFoodFactsProduct: Decodable {
+struct OpenFoodFactsProduct: Decodable, Hashable {
     let productName: String? //🟡商品名(１)
     let brands: String? //🟡ブランド（２）
     let countries: String? //🟡販売国(４)
@@ -36,7 +36,7 @@ struct OpenFoodFactsProduct: Decodable {
     }
 }
 
-struct Nutriments: Decodable {
+struct Nutriments: Decodable, Hashable {
     let energyKcal100g: Double? //🟡カロリー（３）
     let proteins100g: Double? //🟣タンパク質
     let fat100g: Double?//🟣脂質

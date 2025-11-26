@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct BarcodeSearchView: View {
+    
+    @EnvironmentObject var router: Router
+    
     var body: some View {
-        NavigationLink("カメラでの検索結果を表示") {
-            SearchResultView()
+        Button {
+            router.push(.searchResult)
+        } label: {
+            Text("バーコード検索")
         }
     }
 }

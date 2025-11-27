@@ -133,7 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				6970B6642EBED9F40003DB83 /* Assets.xcassets */,
-				6970B6A72EC0F0410003DB83 /* Manager */,
+				6970B6A72EC0F0410003DB83 /* Router */,
 				6970B66B2EBED9FC0003DB83 /* View */,
 				6970B66C2EBEDA040003DB83 /* ViewModel */,
 				6970B6632EBED9F40003DB83 /* Model */,
@@ -183,12 +183,12 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
-		6970B6A72EC0F0410003DB83 /* Manager */ = {
+		6970B6A72EC0F0410003DB83 /* Router */ = {
 			isa = PBXGroup;
 			children = (
 				6970B6A82EC0F0700003DB83 /* Router.swift */,
 			);
-			path = Manager;
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

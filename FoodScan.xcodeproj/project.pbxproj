@@ -135,7 +135,6 @@
 				6970B6642EBED9F40003DB83 /* Assets.xcassets */,
 				6970B6A72EC0F0410003DB83 /* Router */,
 				6970B66B2EBED9FC0003DB83 /* View */,
-				6970B66C2EBEDA040003DB83 /* ViewModel */,
 				6970B6632EBED9F40003DB83 /* Model */,
 				6970B6762EC0B18C0003DB83 /* Service */,
 				6970B6772EC0B1D30003DB83 /* Error */,
@@ -158,13 +157,6 @@
 				6970B6C82ECF2A630003DB83 /* IngredientView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		6970B66C2EBEDA040003DB83 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		6970B6762EC0B18C0003DB83 /* Service */ = {

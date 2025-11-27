@@ -12,6 +12,7 @@ struct TextSearchView: View {
     @EnvironmentObject var router: Router
     @State private var searchText = ""
     @FocusState private var isSearchFocused: Bool
+    @StateObject private var viewModel = TextSearchViewModel()
     let isSearchResult = true
     let foods:[OpenFoodFactsProduct] = DummyData().sampleProducts
     
@@ -38,6 +39,9 @@ struct TextSearchView: View {
             prompt: "食品名を入力"
         )
         .searchFocused($isSearchFocused)
+        .onSubmit(of: .search) {
+            viewModel.searchFood(searchText)
+        }
     }
 }
 

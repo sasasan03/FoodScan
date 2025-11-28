@@ -13,20 +13,25 @@ final class TextSearchViewModel: ObservableObject {
     private var cancellable = Set<AnyCancellable>()
     private let client = OpenFoodFactsApiClient()
     @Published var foods: [OpenFoodFactsProduct]?
+    @Published var searchText: String = ""
     @Published var errorMessage: String?
+    @Published var isLoading: Bool = false
     
-    func searchFood(_ name: String) {
+    func searchFood() {
+        isLoading = true
         Task {
             do {
-                let result = try await client.searchFood(itemName: name)
+                let result = try await client.searchFood(itemName: searchText)
                 result
-                    .receive(on: DispatchQueue.main) 
+                    .receive(on: DispatchQueue.main)
                     .sink(receiveCompletion: { completed in
                     switch completed {
                     case .finished:
-                        print("completed finished")
+                        print("Completed successfully")
+                        self.isLoading = false
                     case .failure(let failure):
                         self.errorMessage = self.message(from: failure)
+                        self.isLoading = false
                     }
                 }, receiveValue: { value in
                     self.foods = value
@@ -38,6 +43,6 @@ final class TextSearchViewModel: ObservableObject {
     }
     
     private func message(from error: Error) -> String {
-        return "\(error)"
+        return "エラー：\n\(error)"
     }
 }

@@ -27,7 +27,6 @@ final class TextSearchViewModel: ObservableObject {
                     .sink(receiveCompletion: { completed in
                     switch completed {
                     case .finished:
-                        print("Completed successfully")
                         self.isLoading = false
                     case .failure(let failure):
                         self.errorMessage = self.message(from: failure)

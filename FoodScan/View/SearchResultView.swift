@@ -12,6 +12,7 @@ struct SearchResultView: View {
     
     @EnvironmentObject var router: Router
     let details = ["添加物", "成分分析", "材料"]
+    let selectedProduct: OpenFoodFactsProduct
     
     var body: some View {
         ScrollView {
@@ -96,6 +97,24 @@ struct NutrientChart: View {
 
 #Preview {
     let router = Router()
-    SearchResultView()
+    let food = OpenFoodFactsProduct(
+        productName: "ポテトチップス",
+        brands: "Calbee",
+        countries: "日本",
+        imageUrl: "https://example.com/chips.jpg",
+        additivesTags: ["en:e621"],
+        nutriments: Nutriments(
+            energyKcal100g: 550,
+            proteins100g: 6.3,
+            fat100g: 35.0,
+            saturatedFat100g: 3.5,
+            carbohydrates100g: 50.0,
+            sugars100g: 2.1,
+            fiber100g: 3.0,
+            salt100g: 1.2
+        ),
+        ingredientsText: "水", ingredientsAnalysisTags: ["サンプル"]
+    )
+    SearchResultView(selectedProduct: food)
         .environmentObject(router)
 }

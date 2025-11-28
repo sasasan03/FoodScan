@@ -24,7 +24,7 @@ struct TextSearchView: View {
                                     .frame(maxWidth: .infinity,alignment: .leading)
                                     .contentShape(Rectangle())
                                     .onTapGesture {
-                                        router.push(.searchResult)
+                                        router.push(.searchResult(food))
                                     }
                             }
                         }

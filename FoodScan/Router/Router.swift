@@ -13,7 +13,7 @@ enum Destination: Hashable {
     case selectSearchType
     case textSearch
     case barcodeSearch
-    case searchResult
+    case searchResult(OpenFoodFactsProduct)
     case componentAnalysis
     case additives
     case ingredient
@@ -29,8 +29,8 @@ enum Destination: Hashable {
                 .toolbarTitleDisplayMode(.large)
         case .barcodeSearch:
             BarcodeSearchView()
-        case .searchResult:
-            SearchResultView()
+        case .searchResult(let selectedProuct):
+            SearchResultView(selectedProduct: selectedProuct)
         case .componentAnalysis:
             ComponentAnalysisView()
                 .navigationTitle("成分分析")

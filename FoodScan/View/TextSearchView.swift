@@ -17,15 +17,19 @@ struct TextSearchView: View {
         Group {
             if !viewModel.isLoading {
                 if let foods = viewModel.foods {
-                    List {
-                        ForEach (foods, id: \.self) { food in
-                            Text(food.productName ?? "--商品名を取得できませんでした--")
-                                .frame(maxWidth: .infinity,alignment: .leading)
-                                .contentShape(Rectangle())
-                                .onTapGesture {
-                                    router.push(.searchResult)
-                                }
+                    if !foods.isEmpty {
+                        List {
+                            ForEach(foods, id: \.self) { food in
+                                Text(food.productName ?? "--商品名を取得できませんでした--")
+                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                    .contentShape(Rectangle())
+                                    .onTapGesture {
+                                        router.push(.searchResult)
+                                    }
+                            }
                         }
+                    } else {
+                        Text("検索した食品が見つかりませんでした")
                     }
                 } else {
                     Text("食品を検索してください")

@@ -18,20 +18,35 @@ struct SearchResultView: View {
         ScrollView {
             GroupBox {
                 HStack {
-                    Image(systemName:"photo.badge.exclamationmark.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 100, height: 150)
-                        .padding()
+                    if let strURL = selectedProduct.imageUrl {
+                        AsyncImage(url: URL(string: strURL)!) { image in
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 150)
+                                .padding()
+                        } placeholder: {
+                            ProgressView()
+                                .scaledToFit()
+                                .frame(width: 100, height: 150)
+                                .padding()
+                        }
+                    } else {
+                        Image(systemName:"photo.badge.exclamationmark.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 150)
+                            .padding()
+                    }
                     VStack(alignment: .leading, spacing: 15) {
-                        Text("商品名：xxx")
-                        Text("ブランド：xxx")
-                        Text("カロリー：xxxkacl")
-                        Text("販売国：xxx")
+                        Text("商品名：\(selectedProduct.productName ?? "xxx")")
+                        Text("ブランド：\(selectedProduct.brands ?? "xxx")")
+                        Text("カロリー：\(String(describing: selectedProduct.nutriments?.energyKcal100g))kacl")
+                        Text("販売国：\(selectedProduct.countries ?? "xxx")")
                     }
                 }
             }
-            NutrientChart()
+            NutrientChart(nutrients: selectedProduct.nutriments)
             ForEach(details, id: \.self) { detail in
                 VStack {
                     HStack {
@@ -60,30 +75,33 @@ struct SearchResultView: View {
         }
         .padding()
     }
-
+    
 }
 
-//TODO: サンプルのため後ほど削除
-struct ValuePerCategory {
-    var category: String
-    var value: Double
-}
-
-//TODO: 
 struct NutrientChart: View {
     
-    let nutrients: [ValuePerCategory] = [
-        .init(category: "たんぱく質 (g)", value: 5),
-        .init(category: "脂質 (g)", value: 5),
-        .init(category: "飽和脂肪酸 (g)", value: 5),
-        .init(category: "炭水化物 (g)", value: 5),
-        .init(category: "糖質 (g)", value: 5),
-        .init(category: "食物繊維 (g)", value: 5),
-        .init(category: "食塩相当量 (g)", value: 5)
-    ]
+    struct NutrientValue {
+        var category: String
+        var value: Double
+    }
+    
+    let nutrients: Nutriments?
+    
+    var nutrientValues: [NutrientValue] {
+        guard let nutrients = nutrients else { return [] }
+        return [
+            .init(category: "たんぱく質 (g)", value: nutrients.proteins100g ?? 0),
+            .init(category: "脂質 (g)", value: nutrients.fat100g ?? 0),
+            .init(category: "飽和脂肪酸 (g)", value: nutrients.saturatedFat100g ?? 0),
+            .init(category: "炭水化物 (g)", value: nutrients.carbohydrates100g ?? 0),
+            .init(category: "糖質 (g)", value: nutrients.sugars100g ?? 0),
+            .init(category: "食物繊維 (g)", value: nutrients.fiber100g ?? 0),
+            .init(category: "食塩相当量 (g)", value: nutrients.salt100g ?? 0)
+        ]
+    }
     
     var body: some View {
-        Chart(nutrients, id: \.category) { nutrient in
+        Chart(nutrientValues, id: \.category) { nutrient in
             BarMark(
                 x: .value("Value", nutrient.value),
                 y: .value("Category", nutrient.category)

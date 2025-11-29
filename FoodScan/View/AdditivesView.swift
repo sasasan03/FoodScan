@@ -9,22 +9,27 @@ import SwiftUI
 
 struct AdditivesView: View {
     
-    let additives = ["プレーンキャラメル","スクラロース","アセスルファムK"]
+    let additives: [String]
     
     var body: some View {
-        ForEach(additives, id: \.self) { additive in
-            VStack(alignment: .leading) {
-                Text(additive)
+        if !additives.isEmpty {
+            ForEach(additives, id: \.self) { additive in
+                let convertJP = AdditiveTranslator.convertToJP(additive)
+                VStack(alignment: .leading) {
+                    Text(convertJP)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                Divider()
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            Divider()
+            .padding(.horizontal, 20)
+            .padding(.vertical, 3)
+        } else {
+            Text("添加物の情報がありません")
         }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 3)
         Spacer()
     }
 }
 
 #Preview {
-    AdditivesView()
+    AdditivesView(additives: ["プレーンキャラメル","スクラロース","アセスルファムK"])
 }

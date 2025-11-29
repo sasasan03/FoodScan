@@ -7,35 +7,69 @@
 
 import SwiftUI
 
-struct ItemDetail: Identifiable {
-    let id  = UUID()
-    let itemName: String
-    let itemDetail: String
-}
-
 struct ComponentAnalysisView: View {
     
-    let itemDetails: [ItemDetail] = [
-        ItemDetail(itemName: "パーム油不使用", itemDetail: "パーム油を含む成分は抽出されませんでした"),
-        ItemDetail(itemName: "ビーガン", itemDetail: "非ビーガン成分不使用"),
-        ItemDetail(itemName: "ベジタリアン", itemDetail: "ベジタリアン成分は抽出されませんでした")
-    ]
+    let ingredientsAnalysis: [String]
     
     var body: some View {
-        ForEach(itemDetails) { itemDetail in
-            VStack(alignment: .leading) {
-                Text(itemDetail.itemName)
-                Text(itemDetail.itemDetail)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
+        VStack(alignment: .leading) {
+            palmOilFreeView
+            Divider()
+            veganView
+            Divider()
+            vegetarianView
             Divider()
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal, 20)
         .padding(.vertical, 3)
         Spacer()
     }
+    
+    var palmOilFreeView: some View {
+        Group {
+            Text("パーム油不使用")
+            Text("パーム油を含む成分は抽出されませんでした")
+        }
+    }
+    
+    var veganView: some View {
+        Group {
+            Text("ビーガン")
+            Text("非ビーガン成分不使用")
+        }
+    }
+    
+    var vegetarianView: some View {
+        Group {
+            Text("ベジタリアン")
+            Text("ベジタリアン成分は抽出されませんでした")
+        }
+    }
+}
+
+private extension ComponentAnalysisView {
+    
+    func aaaa(xxx: [String]) {
+        xxx.forEach { x in
+            
+        }
+    }
+    
+    func containsPositiveTag(_  ingredient: String) -> Bool {
+        if ingredient.contains("en:palm-oil-free") {
+            return true
+        }
+        if ingredient.contains("en:maybe-vegan") {
+            return true
+        }
+        if ingredient.contains("en:maybe-vegetarian") {
+            return true
+        }
+        return false
+    }
 }
 
 #Preview {
-    ComponentAnalysisView()
+    ComponentAnalysisView(ingredientsAnalysis: [""])
 }

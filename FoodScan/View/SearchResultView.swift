@@ -62,11 +62,11 @@ struct SearchResultView: View {
                 .contentShape(Rectangle())
                 .onTapGesture {
                     if detail == "添加物" {
-                        router.push(.additives)
+                        router.push(.additives(selectedProduct.additivesTags ?? []))
                     } else if detail == "成分分析" {
-                        router.push(.componentAnalysis)
+                        router.push(.componentAnalysis(selectedProduct.ingredientsAnalysisTags ?? []))
                     } else if detail == "材料" {
-                        router.push(.ingredient)
+                        router.push(.ingredient(selectedProduct.ingredientsText ?? ""))
                     }
                 }
                 .padding(.horizontal, 15)

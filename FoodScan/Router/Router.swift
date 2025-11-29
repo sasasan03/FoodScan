@@ -14,9 +14,9 @@ enum Destination: Hashable {
     case textSearch
     case barcodeSearch
     case searchResult(OpenFoodFactsProduct)
-    case componentAnalysis
-    case additives
-    case ingredient
+    case componentAnalysis([String])
+    case additives([String])
+    case ingredient(String)
     
     @ViewBuilder
     func makeView() -> some View {
@@ -31,14 +31,14 @@ enum Destination: Hashable {
             BarcodeSearchView()
         case .searchResult(let selectedProuct):
             SearchResultView(selectedProduct: selectedProuct)
-        case .componentAnalysis:
-            ComponentAnalysisView()
+        case .componentAnalysis(let ingredientsAnalysis):
+            ComponentAnalysisView(ingredientsAnalysis: ingredientsAnalysis)
                 .navigationTitle("成分分析")
-        case .additives:
-            AdditivesView()
+        case .additives(let additives):
+            AdditivesView(additives: additives)
                 .navigationTitle("添加物")
-        case .ingredient:
-            IngredientView()
+        case .ingredient(let ingredients):
+            IngredientView(ingredients: ingredients)
                 .navigationTitle("材料")
         }
     }

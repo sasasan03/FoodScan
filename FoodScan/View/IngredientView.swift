@@ -9,16 +9,10 @@ import SwiftUI
 
 struct IngredientView: View {
     
-    let ingredients = ["水","砂糖","レモン果汁"]
+    let ingredients: String
     
     var body: some View {
-        ForEach(ingredients, id: \.self) { ingredient in
-            VStack(alignment: .leading) {
-                Text(ingredient)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            Divider()
-        }
+        Text(ingredients)
         .padding(.horizontal, 20)
         .padding(.vertical, 3)
         Spacer()
@@ -26,5 +20,5 @@ struct IngredientView: View {
 }
 
 #Preview {
-    IngredientView()
+    IngredientView(ingredients: "水、砂糖、レモン果汁")
 }

@@ -101,11 +101,17 @@ struct NutrientChart: View {
     }
     
     var body: some View {
-        Chart(nutrientValues, id: \.category) { nutrient in
-            BarMark(
-                x: .value("Value", nutrient.value),
-                y: .value("Category", nutrient.category)
-            )
+        Group{
+            if nutrients != nil {
+                Chart(nutrientValues, id: \.category) { nutrient in
+                    BarMark(
+                        x: .value("Value", nutrient.value),
+                        y: .value("Category", nutrient.category)
+                    )
+                }
+            } else {
+                Text("表示する栄養素のデータがありません。")
+            }
         }
         .frame(maxWidth: .infinity)
         .frame(height: 300)

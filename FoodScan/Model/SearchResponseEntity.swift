@@ -71,6 +71,27 @@ struct Nutriments: Decodable, Hashable {
         fiber100g = flex(.fiber100g)
         salt100g = flex(.salt100g)
     }
+    
+    /// プレビューで使用するために必要
+    init(
+        energyKcal100g: Double? = nil,
+        proteins100g: Double? = nil,
+        fat100g: Double? = nil,
+        saturatedFat100g: Double? = nil,
+        carbohydrates100g: Double? = nil,
+        sugars100g: Double? = nil,
+        fiber100g: Double? = nil,
+        salt100g: Double? = nil
+    ) {
+        self.energyKcal100g = energyKcal100g
+        self.proteins100g = proteins100g
+        self.fat100g = fat100g
+        self.saturatedFat100g = saturatedFat100g
+        self.carbohydrates100g = carbohydrates100g
+        self.sugars100g = sugars100g
+        self.fiber100g = fiber100g
+        self.salt100g = salt100g
+    }
 }
 
 /// キーに対して返ってくる値の型が違っているため、対応が必要

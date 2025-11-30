@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TextSearchView: View {
     
-    @EnvironmentObject var router: Router
+    @EnvironmentObject private var router: Router
     @FocusState private var isSearchFocused: Bool
     @StateObject private var viewModel = TextSearchViewModel()
     

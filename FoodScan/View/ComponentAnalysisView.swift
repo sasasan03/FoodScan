@@ -13,11 +13,11 @@ struct ComponentAnalysisView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            palmOilFreeView
+            palmOilFree
             Divider()
-            veganView
+            vegan
             Divider()
-            vegetarianView
+            vegetarian
             Divider()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -26,7 +26,7 @@ struct ComponentAnalysisView: View {
         Spacer()
     }
     
-    var palmOilFreeView: some View {
+    private var palmOilFree: some View {
         Group {
             if containPalmOil(ingredientsAnalysis) {
                 Text("パーム油不使用")
@@ -40,7 +40,7 @@ struct ComponentAnalysisView: View {
         }
     }
     
-    var veganView: some View {
+    private var vegan: some View {
         Group {
             Text("ビーガン")
             if containMaybeVegan(ingredientsAnalysis) {
@@ -53,7 +53,7 @@ struct ComponentAnalysisView: View {
         }
     }
     
-    var vegetarianView: some View {
+    private var vegetarian: some View {
         Group {
             Text("ベジタリアン")
             if containMaybeVegetarian(ingredientsAnalysis) {

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct BarcodeSearchView: View {
     
-    @EnvironmentObject var router: Router
-    let sampleFood = OpenFoodFactsProduct(
+    @EnvironmentObject private var router: Router
+    private let sampleFood = OpenFoodFactsProduct(
         productName: "ポテトチップス",
         brands: "Calbee",
         countries: "日本",

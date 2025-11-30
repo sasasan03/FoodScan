@@ -10,8 +10,8 @@ import Charts
 
 struct SearchResultView: View {
     
-    @EnvironmentObject var router: Router
-    let details = ["添加物", "成分分析", "材料"]
+    @EnvironmentObject private var router: Router
+    private let details = ["添加物", "成分分析", "材料"]
     let selectedProduct: OpenFoodFactsProduct
     
     var body: some View {

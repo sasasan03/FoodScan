@@ -27,67 +27,66 @@ struct ComponentAnalysisView: View {
     }
     
     private var palmOilFree: some View {
-        Group {
-            if containPalmOil(ingredientsAnalysis) {
-                Text("パーム油不使用")
-                Text("パーム油を含む成分は抽出されませんでした")
-                    .foregroundStyle(Color.gray)
-            } else {
-                Text("パーム油使用")
-                Text("パーム油を含む成分が抽出されました")
-                    .foregroundStyle(Color.red)
-            }
+        VStack(alignment: .leading) {
+            Text("パーム油")
+            Text(containPalmOil(ingredientsAnalysis))
+                .foregroundStyle(Color.gray)
         }
     }
     
     private var vegan: some View {
-        Group {
+        VStack(alignment: .leading) {
             Text("ビーガン")
-            if containMaybeVegan(ingredientsAnalysis) {
-                Text("非ビーガン成分不使用")
-                    .foregroundStyle(Color.gray)
-            } else {
-                Text("非ビーガン成分使用")
-                    .foregroundStyle(Color.red)
-            }
+            Text(containVegan(ingredientsAnalysis))
+                .foregroundStyle(Color.gray)
         }
     }
     
     private var vegetarian: some View {
-        Group {
+        VStack(alignment: .leading) {
             Text("ベジタリアン")
-            if containMaybeVegetarian(ingredientsAnalysis) {
-                Text("ベジタリアン成分は抽出されませんでした")
-                    .foregroundStyle(Color.gray)
-            } else {
-                Text("ベジタリアン成分が抽出されました")
-                    .foregroundStyle(Color.red)
-            }
+            Text(containVegetarian(ingredientsAnalysis))
+                .foregroundStyle(Color.gray)
         }
     }
 }
 
 private extension ComponentAnalysisView {
-    
-    func containPalmOil(_  ingredients: [String]) -> Bool {
+
+    func containPalmOil(_  ingredients: [String]) -> String {
         if ingredients.contains("en:palm-oil") {
-            return true
+            return "パーム油を含む成分が含まれています"
         }
-        return false
+        if ingredients.contains("en:palm-oil-free") {
+            return "パーム油を含む成分は含まれていません"
+        }
+        return "パーム油を使用しているか不明です"
     }
     
-    func containMaybeVegan(_  ingredients: [String]) -> Bool {
+    func containVegan(_  ingredients: [String]) -> String {
+        if ingredients.contains("en:vegan") {
+            return "ヴィーガン食品です"
+        }
         if ingredients.contains("en:maybe-vegan") {
-            return true
+            return "ヴィーガン食品かもしれません"
         }
-        return false
+        if ingredients.contains("en:non-vegan") {
+            return "ヴィーガン食品ではありません"
+        }
+        return "ヴィーガン食品かどうかは不明です"
     }
     
-    func containMaybeVegetarian(_  ingredients: [String]) -> Bool {
-        if ingredients.contains("en:maybe-vegetarian") {
-            return true
+    func containVegetarian(_  ingredients: [String]) -> String {
+        if ingredients.contains("en:vegetarian") {
+            return "ベジタリアン食品です"
         }
-        return false
+        if ingredients.contains("en:maybe-vegetarian") {
+            return "ベジタリアン食品かもしれません"
+        }
+        if ingredients.contains("en:non-vegetarian") {
+            return "ベジタリアン食品ではありません"
+        }
+        return "ベジタリアン食品かどうかは不明です"
     }
 }
 

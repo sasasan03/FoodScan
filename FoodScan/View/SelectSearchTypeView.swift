@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SelectSearchTypeView: View {
     
-    @EnvironmentObject var router: Router
+    @EnvironmentObject private var router: Router
     
     var body: some View {
         NavigationStack(path: $router.path) {

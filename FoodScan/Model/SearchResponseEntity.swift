@@ -72,7 +72,7 @@ struct Nutriments: Decodable, Hashable {
         salt100g = flex(.salt100g)
     }
     
-    //TODO: ダミー用のinitで使用。不要になった場合に削除
+    /// プレビューで使用するために必要
     init(
         energyKcal100g: Double? = nil,
         proteins100g: Double? = nil,
@@ -108,101 +108,4 @@ struct FlexibleDouble: Decodable {
             value = nil
         }
     }
-}
-
-
-//TODO: ダミー用のデータ。後に削除
-struct DummyData {
-    let sampleProducts: [OpenFoodFactsProduct] = [
-        OpenFoodFactsProduct(
-            productName: "チョコレートケーキ",
-            brands: "Lotte",
-            countries: "日本",
-            imageUrl: "https://example.com/cake.jpg",
-            additivesTags: ["en:e322", "en:e500"],
-            nutriments: Nutriments(
-                energyKcal100g: 420,
-                proteins100g: 5.2,
-                fat100g: 22.5,
-                saturatedFat100g: 12.3,
-                carbohydrates100g: 48.7,
-                sugars100g: 35.0,
-                fiber100g: 2.1,
-                salt100g: 0.3
-            ),
-            ingredientsText: "水", ingredientsAnalysisTags: ["サンプル"]
-        ),
-        OpenFoodFactsProduct(
-            productName: "バニラアイスクリーム",
-            brands: "Haagen-Dazs",
-            countries: "日本,アメリカ",
-            imageUrl: "https://example.com/icecream.jpg",
-            additivesTags: ["en:e412", "en:e410"],
-            nutriments: Nutriments(
-                energyKcal100g: 270,
-                proteins100g: 3.8,
-                fat100g: 17.0,
-                saturatedFat100g: 10.2,
-                carbohydrates100g: 25.0,
-                sugars100g: 22.5,
-                fiber100g: 0.0,
-                salt100g: 0.12
-            ),
-            ingredientsText: "水", ingredientsAnalysisTags: ["サンプル"]
-        ),
-        OpenFoodFactsProduct(
-            productName: "ポテトチップス",
-            brands: "Calbee",
-            countries: "日本",
-            imageUrl: "https://example.com/chips.jpg",
-            additivesTags: ["en:e621"],
-            nutriments: Nutriments(
-                energyKcal100g: 550,
-                proteins100g: 6.3,
-                fat100g: 35.0,
-                saturatedFat100g: 3.5,
-                carbohydrates100g: 50.0,
-                sugars100g: 2.1,
-                fiber100g: 3.0,
-                salt100g: 1.2
-            ),
-            ingredientsText: "水", ingredientsAnalysisTags: ["サンプル"]
-        ),
-        OpenFoodFactsProduct(
-            productName: "ミネラルウォーター",
-            brands: "Evian",
-            countries: "フランス,日本",
-            imageUrl: "https://example.com/water.jpg",
-            additivesTags: [],
-            nutriments: Nutriments(
-                energyKcal100g: 0,
-                proteins100g: 0,
-                fat100g: 0,
-                saturatedFat100g: 0,
-                carbohydrates100g: 0,
-                sugars100g: 0,
-                fiber100g: 0,
-                salt100g: 0.01
-            ),
-            ingredientsText: "水", ingredientsAnalysisTags: ["サンプル"]
-        ),
-        OpenFoodFactsProduct(
-            productName: "クロワッサン",
-            brands: "Paul",
-            countries: "フランス,日本",
-            imageUrl: "https://example.com/croissant.jpg",
-            additivesTags: ["en:e322", "en:e471"],
-            nutriments: Nutriments(
-                energyKcal100g: 406,
-                proteins100g: 8.0,
-                fat100g: 21.0,
-                saturatedFat100g: 12.0,
-                carbohydrates100g: 45.0,
-                sugars100g: 9.0,
-                fiber100g: 2.5,
-                salt100g: 0.8
-            ),
-            ingredientsText: "水", ingredientsAnalysisTags: ["サンプル"]
-        )
-    ]
 }

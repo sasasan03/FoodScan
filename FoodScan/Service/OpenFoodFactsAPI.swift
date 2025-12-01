@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import Combine
 
-struct OpenFoodFactsApiClient {
-    func searchFood(itemName: String) async throws -> [OpenFoodFactsProduct] {
+class OpenFoodFactsApiClient {
+    private let sesion = URLSession.shared
+
+    func searchFood(itemName: String) async throws -> AnyPublisher<[OpenFoodFactsProduct], Error> {
         //TODO: ステージング環境(net)で行っているため本番環境(org)に切り替える必要あり
         guard var components = URLComponents(string: "https://world.openfoodfacts.net/api/v2/search") else { throw OpenFoodFactsAPIError.invalidURL }
         components.queryItems = [
@@ -31,23 +34,20 @@ struct OpenFoodFactsApiClient {
         
         guard let componentsURL = components.url else { throw OpenFoodFactsAPIError.invalidURL }
         
-        print("url：\(componentsURL)")
         var request = URLRequest(url: componentsURL)
         request.httpMethod = "GET"
         request.setValue("FoodScan - iOS - 1.0", forHTTPHeaderField: "User-Agent")
         
-        let (data,response) = try await URLSession.shared.data(for: request)
-        
-        guard let httpResponse = response as? HTTPURLResponse else {
-            throw OpenFoodFactsAPIError.networkError
-        }
-        
-        guard (200..<300).contains(httpResponse.statusCode) else {
-            throw OpenFoodFactsAPIError.invalidResponse(statusCode: httpResponse.statusCode)
-        }
-        
-        let decoder = JSONDecoder()
-        let result = try decoder.decode(SearchResponse.self, from: data)
-        return result.products
+        return sesion.dataTaskPublisher(for: request)
+            .tryMap() { element -> Data in
+                guard let httpResponse = element.response as? HTTPURLResponse,
+                    httpResponse.statusCode == 200 else {
+                        throw URLError(.badServerResponse)
+                    }
+                return element.data
+                }
+            .decode(type: SearchResponse.self, decoder: JSONDecoder())
+            .map { $0.products }
+            .eraseToAnyPublisher()
     }
 }

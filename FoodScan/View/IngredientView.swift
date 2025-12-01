@@ -9,22 +9,31 @@ import SwiftUI
 
 struct IngredientView: View {
     
-    let ingredients = ["水","砂糖","レモン果汁"]
+    let ingredients: String
+    private var ingredientsList: [String] {
+        ingredients.splitByComma()
+    }
     
     var body: some View {
-        ForEach(ingredients, id: \.self) { ingredient in
-            VStack(alignment: .leading) {
-                Text(ingredient)
+        if !ingredientsList.isEmpty {
+            ScrollView {
+                ForEach(ingredientsList, id: \.self) { ingredient in
+                    VStack(alignment: .leading) {
+                        Text(ingredient)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    Divider()
+                }
+                .padding(.horizontal, 20)
+                .padding(.vertical, 3)
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            Divider()
+        } else {
+            Text("材料の情報がありません")
         }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 3)
         Spacer()
     }
 }
 
 #Preview {
-    IngredientView()
+    IngredientView(ingredients: "水、砂糖、レモン果汁")
 }

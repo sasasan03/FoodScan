@@ -11,6 +11,7 @@ import SwiftUI
 struct FoodScanApp: App {
     
     @StateObject private var router: Router = .init()
+    private let apiClient = OpenFoodFactsApiClient()
     
     var body: some Scene {
         WindowGroup {
